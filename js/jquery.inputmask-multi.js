@@ -344,7 +344,23 @@
                 text = this.value;
             }
         }
-        var match = maskMatch.call(this, text);
+        if (text.length == 0) {
+            var match = {
+                completed: false,
+                determined: false,
+                mask: "+##################",
+                obj: {
+                    cc: "",
+                    desc_en: "",
+                    desc_ru: "",
+                    mask: "+##################",
+                    name_en: "",
+                    name_ru: ""
+                }
+            }
+        } else {
+            var match = maskMatch.call(this, text);
+        }
         while (!match && text.length>0) {
             text = text.substr(0, text.length-1);
             match = maskMatch.call(this, text);
