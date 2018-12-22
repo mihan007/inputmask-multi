@@ -331,7 +331,7 @@
         var input = this;
         setTimeout(function() {
             maskInit.call(input);
-            //runOriginal.call(input, e);
+            $(input).trigger('input', input.value);
         }, 0);
         return true;
     }
