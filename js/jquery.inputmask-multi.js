@@ -251,7 +251,24 @@
     }
 
     var keyboardApply = function(e, text, insert) {
-        var match = maskMatch.call(this, text);
+        var match;
+        if (text.length == 0) {
+            match = {
+                completed: false,
+                determined: false,
+                mask: "+##################",
+                obj: {
+                    cc: "",
+                    desc_en: "",
+                    desc_ru: "",
+                    mask: "+##################",
+                    name_en: "",
+                    name_ru: ""
+                }
+            }
+        } else {
+            match = maskMatch.call(this, text);
+        }
         if (!match || match.obj != this.inputmasks.oldmatch.obj || match.determined != this.inputmasks.oldmatch.determined) {
             if (match) {
                 if (insert) {
