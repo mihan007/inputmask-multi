@@ -344,7 +344,7 @@
                 text = this.value;
             }
         }
-        if (text.length == 0) {
+        if ((text.length == 0) || (text.startsWith('+_'))) {
             var match = {
                 completed: false,
                 determined: false,
